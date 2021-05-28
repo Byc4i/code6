@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class CodeLeakController extends Controller
 {
-    public function view()
+    public function view(Request $request)
     {
-        $data = ['title' => '扫描结果'];
+        $data = ['title' => '扫描结果', 'status' => $request->input('status')];
         return view('codeLeak.index', $data);
     }
 

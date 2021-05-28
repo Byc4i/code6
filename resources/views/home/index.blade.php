@@ -6,10 +6,10 @@
     <script>
         Ext.onReady(function () {
             var tplMetric = new Ext.XTemplate(
-                '<div class="metric">',
+                '<a class="metric" href="{url}">',
                 '    <p class="metric-value" data-key="{key}">0</p>',
                 '    <p class="content">{name}</p>',
-                '</div>',
+                '</a>',
             );
 
             Ext.create('Ext.container.Container', {
@@ -66,18 +66,21 @@
                                         html: tplMetric.apply({
                                             key: 'codeLeakCount',
                                             name: '扫描记录数',
+                                            url: '/codeLeak',
                                         })
                                     },
                                     {
                                         html: tplMetric.apply({
                                             key: 'codeLeakPending',
                                             name: '未审记录数',
+                                            url: '/codeLeak?status=0',
                                         })
                                     },
                                     {
                                         html: tplMetric.apply({
                                             key: 'codeLeakSolved',
                                             name: '已解决泄露',
+                                            url: '/codeLeak?status=3',
                                         })
                                     },
                                     {
@@ -85,6 +88,7 @@
                                         html: tplMetric.apply({
                                             key: 'queueJobCount',
                                             name: '待执行任务',
+                                            url: '/configJob',
                                         })
                                     }
                                 ]

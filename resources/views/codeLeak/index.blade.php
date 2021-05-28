@@ -10,7 +10,7 @@
                 autoLoad: true,
                 proxy: {
                     type: 'ajax',
-                    url: '/api/codeLeak',
+                    url: '/api/codeLeak?status={{$status}}',
                     reader: {
                         rootProperty: 'data',
                         totalProperty: 'total',
@@ -65,6 +65,7 @@
                                     valueField: 'value',
                                     width: 65,
                                     name: 'status',
+                                    value: '{{$status}}',
                                     emptyText: '状态',
                                     store: {data: status}
                                 },
